@@ -9,6 +9,7 @@ A real-time, scalable chat app that utilizes distributed systems design, distrib
   - [Backend](#backend)
 - [Features](#features)
 - [Installation](#installation)
+- [Notes](#notes)
 - [Todo](#todo)
 - [How to contribute](#how-to-contribute)
 - [Acknowledgements](#acknowledgements)
@@ -34,6 +35,10 @@ A real-time, scalable chat app that utilizes distributed systems design, distrib
 ## Features
 
 ## Installation
+
+## Notes
+
+Remember to makr EZPing directory as Source Root.
 
 ## Todo
 
