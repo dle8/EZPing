@@ -27,7 +27,7 @@ public class User {
 
     @Email
     @NotEmpty
-    private String email;
+    private String email; // Add NeverBounce API to check email validity?
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "username"), inverseJoinColumns = @JoinColumn(name = "role_id"))
