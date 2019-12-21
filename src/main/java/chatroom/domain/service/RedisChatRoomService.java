@@ -85,6 +85,6 @@ public class RedisChatRoomService implements ChatRoomService {
 
     @Override
     public List<ChatRoom> findAll() {
-        return null;
+        return (List<ChatRoom>) chatRoomRepository.findAll();
     }
 }
