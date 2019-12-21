@@ -43,10 +43,11 @@ public class RedisChatRoomService implements ChatRoomService {
 
     @Override
     public ChatRoom join(ChatRoomUser joiningUser, ChatRoom chatRoom) {
-//        chatRoom.addUser(joiningUser);
-//        chatRoomRepository.save(chatRoom);
-//        sendPublicMessage(SystemMessages.welcome(chatRoom.getId(), joiningUser.getUsername()));
-            return null;
+        chatRoom.addUser(joiningUser);
+        chatRoomRepository.save(chatRoom);
+        sendPublicMessage(SystemMessages.welcome(chatRoom.getId(), joiningUser.getUsername()));
+        updateConnectedUsersViaWebsocket(chatRoom);
+        return chatRoom;
     }
 
     @Override
