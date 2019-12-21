@@ -54,7 +54,9 @@ public class RedisChatRoomService implements ChatRoomService {
 
     @Override
     public void sendPrivateMessage(InstantMessage instantMessage) {
-        // Send message to "/queue/" + chatRoomId + ".private.messages";
+        // Send message to "/queue/" + chatRoomId + ".private.messages"
+        // Spring also attaches to the above destination with receiver's WebSocket session ID to know who is the receiver
+        // User subscribes to "/queue/" + chatRoomId + ".private.messages" + sessionId in stompSuccess
         webSocketMessagingTemplate.convertAndSendToUser(
                 instantMessage.getToUser(),
                 Destinations.ChatRoom.privateMessages(instantMessage.getChatRoomId()),
