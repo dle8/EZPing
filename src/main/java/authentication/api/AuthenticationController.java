@@ -5,6 +5,7 @@ import authentication.domain.service.UserService;
 import authentication.domain.validator.NewUserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -25,6 +26,17 @@ public class AuthenticationController {
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
         binder.addValidators(newUserValidator);
+    }
+
+    @RequestMapping("/")
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping("/new-account")
+    public String newAccount(Model model) {
+        model.addAttribute("user", new User());
+        return "new-account";
     }
 
     @RequestMapping(path = "/new-account", method = RequestMethod.POST)
