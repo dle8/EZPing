@@ -42,24 +42,28 @@ public class ChatRoomController {
         return modelAndView;
     }
 
+    // Fetch from Redis
     @SubscribeMapping("/connected.users")
     public List<ChatRoomUser> listChatRoomConnectedUsersOnSubscribe(SimpMessageHeaderAccessor headerAccessor) {
         String chatRoomId = headerAccessor.getSessionAttributes().get("chatRoomId").toString();
         return chatRoomService.findById(chatRoomId).getConnectedUsers();
     }
 
+    // Fetch from Cassandra
     @SubscribeMapping("/old.messages")
     public List<InstantMessage> listOldMessagesFromUserOnSubcribe(Principal principal, SimpMessageHeaderAccessor headerAccessor) {
         String chatRoomId = headerAccessor.getSessionAttributes().get("chatRoomId").toString();
         return instantMessageService.findAllInstantMessagesFor(principal.getName(), chatRoomId);
     }
 
+    // Endpoint to receive messages from user.
     @MessageMapping("/send.message")
     public void sendMessage(@Payload InstantMessage instantMessage, Principal principal, SimpMessageHeaderAccessor headerAccessor) {
         String chatRoomId = headerAccessor.getSessionAttributes().get("chatRoomId").toString();
-        instantMessage.setFromUser(principal.getName());
-        instantMessage.setChatRoomId(chatRoomId);
+        instantMessage.setFromUser(principal.getName()); // Get message's owner
+        instantMessage.setChatRoomId(chatRoomId); // Get chat room id
 
+        // Send instantMessage object with sendPublicMessage or sendPrivateMessage with public/ private messages
         if (instantMessage.isPublic()) {
             chatRoomService.sendPublicMessage(instantMessage);
         } else {
