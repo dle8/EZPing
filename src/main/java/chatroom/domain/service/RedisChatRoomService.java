@@ -41,6 +41,7 @@ public class RedisChatRoomService implements ChatRoomService {
         );
     }
 
+    // join a provided user to a provided chatroom in the parameters
     @Override
     public ChatRoom join(ChatRoomUser joiningUser, ChatRoom chatRoom) {
         chatRoom.addUser(joiningUser);
@@ -50,6 +51,7 @@ public class RedisChatRoomService implements ChatRoomService {
         return chatRoom;
     }
 
+    // leave a provided user from a provided chatroom in the parameters
     @Override
     public ChatRoom leave(ChatRoomUser leavingUser, ChatRoom chatRoom) {
         sendPublicMessage(SystemMessages.goodbye(chatRoom.getId(), leavingUser.getUsername()));
