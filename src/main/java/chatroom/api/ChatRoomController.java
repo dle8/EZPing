@@ -1,9 +1,12 @@
 package chatroom.api;
 
 import chatroom.domain.model.ChatRoom;
+import chatroom.domain.model.ChatRoomUser;
 import chatroom.domain.service.ChatRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
+import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class ChatRoomController {
@@ -30,5 +34,11 @@ public class ChatRoomController {
         ModelAndView modelAndView = new ModelAndView("chatroom");
         modelAndView.addObject("chatroom", chatRoomService.findById(chatRoomId));
         return modelAndView;
+    }
+
+    @SubscribeMapping("/connected.users")
+    public List<ChatRoomUser> listChatRoomConnectedUsersOnSubscribe(SimpMessageHeaderAccessor headerAccessor) {
+        String chatRoomId = headerAccessor.getSessionAttributes().get("chatRoomId").toString();
+        return chatRoomService.findById(chatRoomId).getConnectedUsers();
     }
 }
