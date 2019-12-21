@@ -1,0 +1,43 @@
+spring.profiles.active: dev
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/EZPing
+    username: root
+    password: root
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  session:
+    store-type: redis
+  thymeleaf:
+    cache: false
+  messages:
+    cache-seconds: 0
+  redis:
+    host: localhost
+    port: 6379
+  data:
+    redis:
+      repositories:
+        enabled: true
+
+flyway.enabled: true
+security.headers.cache: false
+server.session.timeout: 600
+
+EZPing:
+  relay:
+    host: localhost
+    port: 61613
+
