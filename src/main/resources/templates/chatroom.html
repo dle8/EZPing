@@ -125,6 +125,8 @@
             // Execute the publicMessages function when a new mess at the destination -> render public message
             stompClient.subscribe('/topic/' + chatRoomId + '.public.messages', publicMessages);
             // Execute the privateMessages function when a new mess at the destination -> render private message
+            // Spring auto attaches the WebSocket sessionID of the user to the destination (endpoint) uri & remove /user from it
+            // So user subscribes for /queue/ + chatRoomId + '.private.messages' + WebSocket_sessionID
             stompClient.subscribe('/user/queue/' + chatRoomId + '.private.messages', privateMessages);
             // Execute the updateConnectedUsers function when a new mess at the destination -> update user's connected users
             stompClient.subscribe('/topic/' + chatRoomId + '.connected.users', updateConnectedUsers);
@@ -225,6 +227,7 @@
                     'toUser' : spanSendTo.text()
                 }
             }
+            // Send message to the destination /chatroom/send.message, handled in ChatRoomController
             stompClient.send("/chatroom/send.message", {}, JSON.stringify(instantMessage));
             inputMessage.val("").focus();
         }
