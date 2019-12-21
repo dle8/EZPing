@@ -1,6 +1,6 @@
 package EZPing.chatroom.domain.model;
 
-import utils.SystemUsers;
+import EZPing.utils.SystemUsers;
 
 public class InstantMessageBuilder {
     private InstantMessage instantMessage;

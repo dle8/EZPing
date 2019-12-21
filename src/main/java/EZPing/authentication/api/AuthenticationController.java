@@ -1,8 +1,8 @@
 package EZPing.authentication.api;
 
-import authentication.domain.model.User;
-import authentication.domain.service.UserService;
-import authentication.domain.validator.NewUserValidator;
+import EZPing.authentication.domain.model.User;
+import EZPing.authentication.domain.service.UserService;
+import EZPing.authentication.domain.validator.NewUserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

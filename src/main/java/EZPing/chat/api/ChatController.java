@@ -1,7 +1,7 @@
 package EZPing.chat.api;
 
-import chatroom.domain.model.ChatRoom;
-import chatroom.domain.service.ChatRoomService;
+import EZPing.chatroom.domain.model.ChatRoom;
+import EZPing.chatroom.domain.service.ChatRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;

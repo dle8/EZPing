@@ -6,7 +6,7 @@ import org.springframework.cassandra.core.PrimaryKeyType;
 import org.springframework.data.cassandra.mapping.PrimaryKeyColumn;
 import org.springframework.cassandra.core.Ordering;
 import org.springframework.data.cassandra.mapping.Table;
-import utils.SystemUsers;
+import EZPing.utils.SystemUsers;
 
 import java.util.Date;
 
