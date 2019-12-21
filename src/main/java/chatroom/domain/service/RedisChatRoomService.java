@@ -61,12 +61,26 @@ public class RedisChatRoomService implements ChatRoomService {
 
     @Override
     public void sendPublicMessage(InstantMessage instantMessage) {
-
+        webSocketMessagingTemplate.convertAndSend(
+                Destinations.ChatRoom.publicMessages(instantMessage.getChatRoomId())
+                instantMessage
+        );
+        instantMessageService.appendInstantMessageToConversations(instantMessage);
     }
 
     @Override
     public void sendPrivateMessage(InstantMessage instantMessage) {
-
+        webSocketMessagingTemplate.convertAndSendToUser(
+                instantMessage.getToUser(),
+                Destinations.ChatRoom.privateMessages(instantMessage.getChatRoomId()),
+                instantMessage
+        );
+        webSocketMessagingTemplate.convertAndSendToUser(
+                instantMessage.getFromUser(),
+                Destinations.ChatRoom.privateMessages(instantMessage.getChatRoomId()),
+                instantMessage
+        );
+        instantMessageService.appendInstantMessageToConversations(instantMessage);
     }
 
     @Override
