@@ -1,4 +1,4 @@
-version: '1'
+version: '3'
 services:
   redis:
     image: "redis:3.0.6"
@@ -16,7 +16,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: EZPing
   rabbitmq-stomp:
-    image: "byteflair/rabbitmq-stomp:3.6"
+    image: "byteflair/rabbitmq-stomp"
     ports:
     - "5672:5672"
     - "15672:15672"
