@@ -7,15 +7,15 @@ import chatroom.domain.service.ChatRoomService;
 import chatroom.domain.service.InstantMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.awt.event.WindowStateListener;
 import java.security.Principal;
 import java.util.List;
 
@@ -52,5 +52,18 @@ public class ChatRoomController {
     public List<InstantMessage> listOldMessagesFromUserOnSubcribe(Principal principal, SimpMessageHeaderAccessor headerAccessor) {
         String chatRoomId = headerAccessor.getSessionAttributes().get("chatRoomId").toString();
         return instantMessageService.findAllInstantMessagesFor(principal.getName(), chatRoomId);
+    }
+
+    @MessageMapping("/send.message")
+    public void sendMessage(@Payload InstantMessage instantMessage, Principal principal, SimpMessageHeaderAccessor headerAccessor) {
+        String chatRoomId = headerAccessor.getSessionAttributes().get("chatRoomId").toString();
+        instantMessage.setFromUser(principal.getName());
+        instantMessage.setChatRoomId(chatRoomId);
+
+        if (instantMessage.isPublic()) {
+            chatRoomService.sendPublicMessage(instantMessage);
+        } else {
+            chatRoomService.sendPrivateMessage(instantMessage);
+        }
     }
 }
