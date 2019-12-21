@@ -1,4 +1,6 @@
-# [EZPing](https://github.com/dle8/EZPing) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dle8/Kronos/blob/master/LICENSE) 
+<p align="center"><img width=12.5% src="https://github.com/dle8/EZPing/blob/master/images/EZPing.png"></p>
+
+# [EZPing](https://github.com/dle8/EZPing) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dle8/Kronos/blob/master/LICENSE)
 
 A real-time, scalable chat app that utilizes distributed systems design, distributed NoSQL database and message broker to improve chatting experience(just like its name).
 
