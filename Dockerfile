@@ -4,5 +4,6 @@ FROM openjdk:8-jdk-alpine
 MAINTAINER dle8@u.rochester.edu
 VOLUME /tmp
 RUN apk add docker
+RUN apk add docker-compose
 CMD ["docker-compose", "up", "and", "java","-jar","target/EZPing-0.1.0.jar"]
 EXPOSE 8080:8080
