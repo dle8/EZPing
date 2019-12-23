@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: dependencies.yml
+run:
+  web: docker-compose -f dependencies.yml up -d
