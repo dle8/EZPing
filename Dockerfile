@@ -10,6 +10,7 @@ RUN apk add docker
 RUN apk update && apk add curl curl-dev
 RUN curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
+COPY --from=docker/compose:1.25.0-alpine /usr/local/bin/docker-compose /usr/local/bin/
 #CMD ["docker-compose", "up", "&&", "java","-jar","target/EZPing-0.1.0.jar"]
 RUN docker-compose up -d
 CMD java -jar target/EZPing-0.1.0.jar
