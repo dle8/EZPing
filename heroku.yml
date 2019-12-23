@@ -1,5 +1,5 @@
 build:
   docker:
-    web: dependencies.yml
+    web: Dockerfile
 run:
-  web: docker-compose -f dependencies.yml up -d
+  web: java -jar target/EZPing-0.1.0.jar
