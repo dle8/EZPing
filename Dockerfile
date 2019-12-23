@@ -2,6 +2,7 @@ FROM cassandra:3.0
 FROM mysql:5.7
 FROM redis:3.0.6
 FROM byteflair/rabbitmq-stomp
+FROM docker
 
 MAINTAINER dle8@u.rochester.edu
 FROM openjdk:8-jdk-alpine
