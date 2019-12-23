@@ -3,5 +3,6 @@
 FROM openjdk:8-jdk-alpine
 MAINTAINER dle8@u.rochester.edu
 VOLUME /tmp
-ENTRYPOINT ["java","-jar","target/EZPing-0.1.0.jar"]
+#ENTRYPOINT ["java","-jar","target/EZPing-0.1.0.jar"]
+ENTRYPOINT ["ls",  "-lah",  "/target"]
 EXPOSE 8080:8080
