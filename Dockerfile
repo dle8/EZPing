@@ -4,7 +4,6 @@ FROM redis:3.0.6
 FROM byteflair/rabbitmq-stomp
 
 MAINTAINER dle8@u.rochester.edu
-VOLUME /tmp
 #RUN apk add docker
 #RUN docker
 #RUN apk add py-pip
