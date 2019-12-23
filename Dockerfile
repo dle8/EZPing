@@ -12,6 +12,7 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-c
 RUN chmod +x /usr/local/bin/docker-compose
 COPY --from=docker/compose:1.25.0-alpine /usr/local/bin/docker-compose /usr/local/bin/
 #CMD ["docker-compose", "up", "&&", "java","-jar","target/EZPing-0.1.0.jar"]
-RUN docker-compose up -d
+RUN cd home; ls
+RUN docker-compose heropkup -d
 CMD java -jar target/EZPing-0.1.0.jar
 EXPOSE 8080:8080
