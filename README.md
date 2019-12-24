@@ -33,7 +33,6 @@ A real-time, scalable chat app that utilizes distributed systems design, distrib
 - Message broker: [RabbitMQ](https://www.rabbitmq.com/)
 - Distributed memory caching: [Memcached](https://memcached.org/)
 - HTTP Load Balancing: [NGINX](https://www.nginx.com/)
-- Hosting: [Heroku](https://www.heroku.com/)
 
 ## Features
 
