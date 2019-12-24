@@ -15,7 +15,7 @@ A real-time, scalable chat app that utilizes distributed systems design, distrib
 - [Todo](#todo)
 - [How to contribute](#how-to-contribute)
 - [Acknowledgements](#acknowledgements)
-- [Contributors](#contributors)
+- [Author](#author)
 - [License](#license)
 
 ## 🛠 Technical stack
@@ -45,11 +45,22 @@ A real-time, scalable chat app that utilizes distributed systems design, distrib
 
 ## ⬇ Installation
 
+- Download docker & docker-compose: [Docker](https://docs.docker.com/v17.12/install/#server).
+- Install [maven](https://www.baeldung.com/install-maven-on-windows-linux-mac) for your OS. (Maven works best with [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)).
+- Start the containers from ```docker-compose.yml``` with: ```docker-compose up -d```. (Some docker-compose [commands](https://docs.docker.com/compose/gettingstarted/)).
+- Execute the jar file: ```java -jar target/EZPing-0.1.0.jar```.
+
+Now, the app is up at ```http://localhost:8080```.
+
 ## 📋 Notes
 
 Remember to makr EZPing directory as Source Root.
 
-## 📝  Todo
+## 📝 Todo
+
+- Add more UI to the sites.
+- Upload project design & explaination.
+- Perhaps use NGINX with Google Cloud Compute Engine? Elaborate more in this [article](https://cloud.google.com/community/tutorials/https-load-balancing-nginx)).
 
 ## 👏 How to contribute
 
