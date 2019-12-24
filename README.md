@@ -74,5 +74,5 @@ University of Rochester '21.
 
 ## 📄 License
 
-Kronos is [MIT licensed](./LICENSE).
+EZPing is [MIT licensed](./LICENSE).
 
