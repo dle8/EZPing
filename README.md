@@ -54,13 +54,13 @@ Now, the app is up at ```http://localhost:8080```.
 
 ## 📋 Notes
 
-Remember to makr EZPing directory as Source Root.
+Remember to mark EZPing directory as Source Root.
 
 ## 📝 Todo
 
 - Add more UI to the sites.
 - Upload project design & explaination.
-- Perhaps use NGINX with Google Cloud Compute Engine? Elaborate more in this [article](https://cloud.google.com/community/tutorials/https-load-balancing-nginx)).
+- Perhaps use NGINX with Google Cloud Compute Engine? Elaborate more in this [article](https://cloud.google.com/community/tutorials/https-load-balancing-nginx).
 
 ## 👏 How to contribute
 
