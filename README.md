@@ -21,8 +21,7 @@ A real-time, scalable chat app that utilizes distributed systems design, distrib
 ## 🛠 Technical stack
 
 ### 📙 Frontend
-- Programming language(s): [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- Framework(s): [React](https://reactjs.org/)
+- Programming language(s): HTML, CSS, JavaScript
 
 ### ⚙ Backend
 - Programming language(s): [Java](https://www.java.com/en/download/)
